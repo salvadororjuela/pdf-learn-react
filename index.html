@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>React Samples</title>
+</head>
+
+<body>
+    <!-- Target container -->
+    <div id="root"></div>
+    <!-- React library & ReactDOM (Development Version)-->
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script>
+        // Pure React and JavaScript code
+        const recipe = React.createElement("section", {id: "baked-salmon"},
+            React.createElement("h1", null, "Baked Salmon"),
+            React.createElement("ul", {className: "ingredients"},
+                React.createElement("li", null, "2 lb salmon"),
+                React.createElement("li", null, "5 springs fresh resemary"),
+                React.createElement("li", null, "2 tablespoons olive oil"),
+                React.createElement("li", null, "2 small lemons"),
+                React.createElement("li", null, "1 teaspoon kosher salt"),
+                React.createElement("li", null, "4 cloves of chopped garlic")
+            ),
+            React.createElement("section", {className: "instructions"},
+                React.createElement("h2", null, "Cooking Instructions"),
+                React.createElement("p", null, "Preheat the oven to 375 degrees."),
+                React.createElement("p", null, "Lightly coat aluminium foil with oil."),
+                React.createElement("p", null, "Place salmon on foil"),
+                React.createElement("p", null, "Cover with rosemary, sliced lemons, chopped garlic"),
+                React.createElement("p", null, "Bake for 15 to 20 minutes until cooked throught."), 
+                React.createElement("p", null, "Remove from oven.")
+            )
+        );
+        console.log(recipe)
+        
+        // #########################################################################################################
+        // Another way to create a list is by the use of an array to assign the child of each li from the array using the map function
+        const items = [
+            "2 lb salmon",
+            "5 springs fresh resemary",
+            "2 tablespoons olive oil",
+            "2 small lemons",
+            "1 teaspoon kosher salt",
+            "4 cloves of chopped garlic"
+        ];
+        // This will produce the same result as the li in the recipe in the previous example.
+        const recipe2 = React.createElement("ul", null, 
+            items.map((ingredient, i) => React.createElement("li", {key: i}, ingredient))
+        );
+        console.log(recipe2)
+        
+        ReactDom.render([recipe, recipe2], document.getElementById("root"));
+    </script>
+</body>
+
+</html>
